@@ -1,0 +1,16 @@
+{
+  "name": "system-book",
+  "version": "1.0.0",
+  "description": "Sistema de Gestión de Libros en JavaScript - Proyecto GA1-220501098-03-AA1-EV05",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "Juan Camilo Sarrazola",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
