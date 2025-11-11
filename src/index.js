@@ -1,17 +1,11 @@
-// 📚 Sistema de Gestión de Libros
-// Autor: Juan Camilo Sarrazola
-// Evidencia: GA1-220501098-03-AA1-EV05
-// ===================================
 
-// 🧩 Importación del módulo readline
+//  Importación del módulo readline
 const readline = require("readline");
 
-// 🧱 Estructura de datos principal (Pila)
+//  Estructura de datos principal (Pila)
 let pilaLibros = [];
 
-// ===================================
-// 🧠 Función constructora (objeto literal)
-// ===================================
+//  Función constructora (objeto literal)
 const crearLibro = (
   titulo,
   autor,
@@ -47,23 +41,23 @@ const crearLibro = (
   fecha_agregado: new Date().toISOString(),
 });
 
-// ===================================
-// ⚙️ Operaciones sobre la pila
-// ===================================
+
+//  Operaciones sobre la pila
+
 const agregarLibro = (libro) => pilaLibros.push(libro);
 
 const quitarLibro = () => {
   if (pilaLibros.length === 0) {
-    console.log("⚠️ No hay libros para eliminar.\n");
+    console.log(" No hay libros para eliminar.\n");
   } else {
     const eliminado = pilaLibros.pop();
-    console.log(`🗑️ Se eliminó "${eliminado.titulo}" de la pila.\n`);
+    console.log(` Se eliminó "${eliminado.titulo}" de la pila.\n`);
   }
 };
 
 const mostrarPila = () => {
   console.clear();
-  console.log("📚 LISTA DE LIBROS EN LA PILA:\n");
+  console.log(" LISTA DE LIBROS EN LA PILA:\n");
   if (pilaLibros.length === 0) {
     console.log("⚠️ La pila está vacía.");
   } else {
@@ -73,7 +67,7 @@ const mostrarPila = () => {
       );
     });
   }
-  console.log("\n----------------------------\n");
+  console.log("\n----------\n");
 };
 
 const mostrarEstadisticas = () => {
@@ -86,7 +80,7 @@ const mostrarEstadisticas = () => {
     return acc;
   }, {});
 
-  console.log("📊 ESTADÍSTICAS DE LA COLECCIÓN");
+  console.log("ESTADÍSTICAS DE LA COLECCIÓN");
   console.log(`Total de libros: ${total}`);
   console.log(`Precio total: $${precioTotal.toFixed(2)}`);
   console.log(`Precio promedio: $${precioPromedio.toFixed(2)}`);
@@ -94,9 +88,9 @@ const mostrarEstadisticas = () => {
   console.log("\n----------------------------\n");
 };
 
-// ===================================
-// 📘 Inicialización de Libros Base (20)
-// ===================================
+
+//  Inicialización de Libros Base (20)
+
 const inicializarLibros = () => {
   pilaLibros = [
     // Clásicos de la Literatura
@@ -121,13 +115,13 @@ const inicializarLibros = () => {
   ];
 
   console.clear();
-  console.log("✅ Se han cargado los 20 libros iniciales.\n");
+  console.log(" Se han cargado los 20 libros iniciales.\n");
   mostrarPila();
 };
 
-// ===================================
-// ➕ Libros adicionales (10)
-// ===================================
+
+//  Libros adicionales (10)
+
 const agregarLibrosAdicionales = () => {
   const adicionales = [
     crearLibro("Dune", "Frank Herbert", "ciencia ficción", "inglés", 70000, "tapa dura", "9780441172719", "Planeta desértico y política galáctica", "nuevo", "E1", "1965", "Chilton Books", 412, "22x15cm", "0.8kg"),
@@ -143,12 +137,12 @@ const agregarLibrosAdicionales = () => {
   ];
 
   adicionales.forEach(agregarLibro);
-  console.log("✅ Se han agregado 10 libros adicionales.\n");
+  console.log(" Se han agregado 10 libros adicionales.\n");
 };
 
-// ===================================
-// 🎛️ Menú Interactivo
-// ===================================
+
+//  Menú Interactivo
+
 const iniciarMenu = () => {
   const rl = readline.createInterface({
     input: process.stdin,
@@ -158,15 +152,15 @@ const iniciarMenu = () => {
   const mostrarOpciones = () => {
     console.log(`
 ==========================
-📚 SISTEMA DE GESTIÓN DE LIBROS
+SISTEMA DE GESTIÓN DE LIBROS
 ==========================
-1️⃣ Mostrar pila de libros
-2️⃣ Agregar libro manualmente
-3️⃣ Quitar último libro
-4️⃣ Mostrar estadísticas
-5️⃣ Reinicializar con 20 libros
-6️⃣ Agregar 10 libros adicionales
-7️⃣ Salir
+1️ Mostrar pila de libros
+2️ Agregar libro manualmente
+3️ Quitar último libro
+4️ Mostrar estadísticas
+5️ Reinicializar con 20 libros
+6️ Agregar 10 libros adicionales
+7️ Salir
 `);
   };
 
@@ -199,7 +193,7 @@ const iniciarMenu = () => {
                 "0.5kg"
               );
               agregarLibro(nuevoLibro);
-              console.log(`✅ Libro "${titulo}" agregado exitosamente.\n`);
+              console.log(` Libro "${titulo}" agregado exitosamente.\n`);
               preguntar();
             });
           });
@@ -221,11 +215,11 @@ const iniciarMenu = () => {
           preguntar();
           break;
         case "7":
-          console.log("👋 Saliendo del sistema...");
+          console.log(" Saliendo del sistema...");
           rl.close();
           break;
         default:
-          console.log("❌ Opción no válida.\n");
+          console.log(" Opción no válida.\n");
           preguntar();
       }
     });
@@ -234,8 +228,8 @@ const iniciarMenu = () => {
   preguntar();
 };
 
-// ===================================
-// 🚀 Inicio del Programa
-// ===================================
+
+//  Inicio del Programa
+
 inicializarLibros(); // Carga los 20 libros y los muestra
 iniciarMenu(); // Inicia el menú interactivo
